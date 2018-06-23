@@ -28,7 +28,7 @@ HTMLWidgets.widget({
     //  http://bost.ocks.org/mike/treemap/
     //  https://gist.github.com/zanarmstrong/76d263bd36f312cb0f9f
 
-    var margin = {top: 0, right: 0, bottom: 0, left: 0, grandparent: 0},
+    var margin = {top: 0, right: 0, bottom: 0, left: 0, grandparent: 20},
         width = el.getBoundingClientRect().width,
         height = el.getBoundingClientRect().height - margin.top - margin.bottom,
         formatNumber = d3.format(",d"),
