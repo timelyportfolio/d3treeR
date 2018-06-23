@@ -1,6 +1,6 @@
 .d3tree3 text {
   pointer-events: none;
-  font-size: 10px;
+  /* font-size: 10px; */
   font-family: sans-serif;
 }
 

@@ -406,6 +406,13 @@ HTMLWidgets.widget({
       function text(text) {
         text.attr("x", function(d) { return xscale(d.x) + 6; })
             .attr("y", function(d) { return yscale(d.y) + 6; })
+            .attr("font-size",function(d){
+              //font-size depends on width
+              width = xscale(d.x + d.dx) - xscale(d.x);
+              r1 = [0,400];//Min and max range of box
+              r2 = [0,15]; //min and max range of font-size
+              return ( width - r1[ 0 ] ) * ( r2[ 1 ] - r2[ 0 ] ) / ( r1[ 1 ] - r1[ 0 ] ) + r2[ 0 ];
+            })
             .style("fill", function (d) {
               return idealTextColor( d.color ? d.color : color(leveltwo(d)[celltext]) );
             });
