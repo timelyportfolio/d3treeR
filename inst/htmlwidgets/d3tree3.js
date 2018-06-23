@@ -424,7 +424,7 @@ HTMLWidgets.widget({
 
       function name(d) {
         return d.parent
-            ? name(d.parent) + "." + d[celltext]
+            ? name(d.parent) + "," + d[celltext]
             : d[celltext];
 
       }
