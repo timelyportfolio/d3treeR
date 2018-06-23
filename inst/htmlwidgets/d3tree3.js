@@ -28,7 +28,7 @@ HTMLWidgets.widget({
     //  http://bost.ocks.org/mike/treemap/
     //  https://gist.github.com/zanarmstrong/76d263bd36f312cb0f9f
 
-    var margin = {top: 60, right: 0, bottom: 20, left: 0, grandparent: 20},
+    var margin = {top: 15, right: 0, bottom: 0, left: 0, grandparent: 20},
         width = el.getBoundingClientRect().width,
         height = el.getBoundingClientRect().height - margin.top - margin.bottom,
         formatNumber = d3.format(",d"),
@@ -406,6 +406,13 @@ HTMLWidgets.widget({
       function text(text) {
         text.attr("x", function(d) { return xscale(d.x) + 6; })
             .attr("y", function(d) { return yscale(d.y) + 6; })
+            .attr("font-size",function(d){
+              //font-size depends on width
+              width = xscale(d.x + d.dx) - xscale(d.x);
+              r1 = [0,400];//Min and max range of box
+              r2 = [0,15]; //min and max range of font-size
+              return ( width - r1[ 0 ] ) * ( r2[ 1 ] - r2[ 0 ] ) / ( r1[ 1 ] - r1[ 0 ] ) + r2[ 0 ];
+            })
             .style("fill", function (d) {
               return idealTextColor( d.color ? d.color : color(leveltwo(d)[celltext]) );
             });
@@ -424,7 +431,7 @@ HTMLWidgets.widget({
 
       function name(d) {
         return d.parent
-            ? name(d.parent) + "." + d[celltext]
+            ? name(d.parent) + "," + d[celltext]
             : d[celltext];
 
       }
