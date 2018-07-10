@@ -1,12 +1,19 @@
 .d3tree3 text {
-  pointer-events: none;
-  font-size: 10px;
+  pointer-events: all;
+  /* font-size: 10px; */
   font-family: sans-serif;
+}
+
+.d3tree3 .depth .children:hover text {
 }
 
 .d3tree3 .grandparent text {
   font-weight: bold;
-  font-size: inherit;
+  font-size: 20px;
+}
+
+.d3tree3 .grandparent rect {
+  fill: rgb(255,255,255) !important;
 }
 
 .d3tree3 .legend text{
