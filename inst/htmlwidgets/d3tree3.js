@@ -313,6 +313,7 @@ HTMLWidgets.widget({
           .append("title")
             .text(function(d) { return formatNumber(d[valueField]); });
 
+        //Changed .text to .html here!
         g.append("text")
             .attr("dy", ".75em")
             .text(function(d) { return d[celltext]; })
