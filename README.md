@@ -13,10 +13,10 @@ library(treemap)
 library(d3treeR)
 
 # example 1 from ?treemap
-data(GNI2010)
+data(GNI2014)
 d3tree2(
    treemap(
-     GNI2010
+     GNI2014
      ,index=c("continent", "iso3")
      ,vSize="population"
      ,vColor="GNI"
